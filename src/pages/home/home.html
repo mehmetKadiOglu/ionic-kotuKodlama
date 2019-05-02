@@ -1,0 +1,117 @@
+<ion-content>
+
+  <div id="yan">
+      <div class="textler">
+          <input (dblclick)='haritaBaslat("Temizle3")' id="pac-input3" type="text" placeholder="Yer Giriniz">
+          <select id="turler">
+              <option value="cafe">Kafe</option>
+              <option value="bank">Banka</option>
+              <option value="library">Kütüphane</option>
+              <option value="parking">Park</option>
+              <option value="restaurant">Resturant</option>
+              <option value="gym">Spor Salonu</option>
+              <option value="hospital">Hastane</option>
+          </select>
+      </div>
+      <div class="buttonlar">
+          <span>
+              <button class="button" ion-fab (click)="haritaBaslat('yerBul')" color="primary">
+                  <ion-icon name="ios-eye-outline"></ion-icon>
+              </button>
+          </span>
+
+      </div>
+
+  </div>
+
+  <div id="asa">
+
+      <div class="textler">
+
+          <input (dblclick)='haritaBaslat("Temizle1")' id="pac-input" type="text" placeholder="Baslangic Adresi">
+          <input (dblclick)='haritaBaslat("Temizle2")' (click)='haritaBaslat(3)' id="pac-input2" type="text" placeholder="Bitis Adresi">
+      </div>
+
+      <div id="buttonlar" class="buttonlar">
+          <!-- idnin verilmesinin nedeni jquery ile gizleme yapılıyor-->
+          <button class="button" style="float:left;margin-right:2%" (click)="haritaBaslat('WALKING')" ion-fab color="primary">
+              <ion-icon name="walk"></ion-icon>
+          </button>
+
+          <button class="button" (click)="haritaBaslat('DRIVING')" ion-fab color="primary">
+              <ion-icon name="ios-car"></ion-icon>
+          </button>
+
+      </div>
+      <!-- <section>
+        <button id="dinle" class="kapali" ion-button fll (click)="intervalDurdur()">Rota Dinle</button>
+
+        <span class="konum">
+            <ion-checkbox [(ngModel)]="cucumber" (ionChange)="updateCucumber()"></ion-checkbox>
+            <ion-label style="display:inline;margin-left:5px">Konum</ion-label>
+        </span>
+    </section> -->
+  </div>
+
+  <ion-card style="left:-600px" id="directionsPanel">
+      <ion-card-content>
+          <div #directionsPanel></div>
+      </ion-card-content>
+  </ion-card>
+
+  <div id="markerAyrinti" style="left:-600px">
+      <div id="spanDivi">
+          <span class="span" id="yerIsmi">
+          </span>
+          <span class="span" id="telefonNumarasi">
+          </span>
+      </div>
+
+      <div>
+          <button class="button" (click)="haritaBaslat('yerRota')" ion-fab color="primary">
+              <ion-icon name="ios-car"></ion-icon>
+          </button>
+      </div>
+
+
+  </div>
+
+
+
+  <ion-fab style="margin:100px 0px 0px 15px" top>
+      <button ion-fab (click)="haritaBaslat(2000)" color="primary">
+          <ion-icon name="ios-arrow-down-outline"></ion-icon>
+      </button>
+
+      <ion-fab-list side="bottom">
+          
+          <button ion-fab (click)="haritaBaslat(4)" color="primary">
+              <ion-icon name="ios-create-outline"></ion-icon>
+          </button>
+          <button ion-fab id="mikrofon" style="display: block" (click)="haritaBaslat('dinle')" color="primary">
+              <ion-icon  name="ios-mic"></ion-icon>
+          </button>
+
+          <button ion-fab id="mikrofon2" style="display: none" (click)="haritaBaslat('sesKes')" color="primary">
+              <ion-icon name="ios-mic-off"></ion-icon>
+          </button>
+
+      </ion-fab-list>
+      <ion-fab-list side="right">
+          <button ion-fab (click)="haritaBaslat(1)" color="primary">
+              <ion-icon name="map"></ion-icon>
+          </button>
+          <button ion-fab (click)="haritaBaslat(2)" color="primary">
+              <ion-icon name="car"></ion-icon>
+          </button>
+          <button ion-fab (click)="haritaBaslat('konum')" color="primary">
+              <ion-icon name="locate"></ion-icon>
+          </button>
+      </ion-fab-list>
+  </ion-fab>
+
+
+  <div #map id="map">
+  </div>
+
+</ion-content>
